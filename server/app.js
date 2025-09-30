@@ -5,7 +5,7 @@ const { handleBirthday } = require("./controller/authController");
 const express = require("express")
 const app = express()
 
-const database = require('../server/config/database')
+const {connectDB} = require("./config/database");
 
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes")
@@ -16,7 +16,7 @@ const path = require("path");
 app.use(express.json());
 app.use(cors());
 
-database.connectDB();
+connectDB();
 
 
 // app.get('/',(req,res)=>{
