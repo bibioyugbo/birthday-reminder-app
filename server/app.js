@@ -19,10 +19,10 @@ app.use(cors());
 database.connectDB();
 
 
-app.get('/',(req,res)=>{
-    res.send("Welcome to Birthday app Backend");
-
-})
+// app.get('/',(req,res)=>{
+//     res.send("Welcome to Birthday app Backend");
+//
+// })
 app.get("/health", (req, res) => {
     res.send("OK");
 });
