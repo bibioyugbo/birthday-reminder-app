@@ -15,7 +15,10 @@ interface DatePickerDemoProps {
     placeholder?: string;
 }
 
+
 export function DatePickerDemo({ value, onChange, placeholder = "Pick your birthday" }: DatePickerDemoProps) {
+    const twentyYearsAgo = new Date();
+    twentyYearsAgo.setFullYear(twentyYearsAgo.getFullYear() - 20); // ~20 years ago
     return (
         <Popover>
             <PopoverTrigger asChild>
@@ -34,7 +37,7 @@ export function DatePickerDemo({ value, onChange, placeholder = "Pick your birth
                     selected={value}
                     onSelect={onChange}
                     initialFocus
-                    defaultMonth={value || new Date(1990, 0)}
+                    defaultMonth={value || twentyYearsAgo}
                     disabled={[
                         { before: new Date(1900, 0, 1) }, // disables dates before 1900
                         { after: new Date() },             // disables future dates
