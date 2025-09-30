@@ -34,6 +34,11 @@ export function DatePickerDemo({ value, onChange, placeholder = "Pick your birth
                     selected={value}
                     onSelect={onChange}
                     initialFocus
+                    defaultMonth={value || new Date(1990, 0)}
+                    disabled={[
+                        { before: new Date(1900, 0, 1) }, // disables dates before 1900
+                        { after: new Date() },             // disables future dates
+                    ]}
                 />
             </PopoverContent>
         </Popover>
