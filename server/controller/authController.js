@@ -20,7 +20,7 @@ try{
     const user = await User.create({
         userName,
         email,
-        birthday: new Date(birthday)
+        birthday
     })
     res.status(200).json({
         responseCode: "00",
